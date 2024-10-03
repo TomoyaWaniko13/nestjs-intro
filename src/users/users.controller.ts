@@ -1,4 +1,5 @@
-import { Body, Controller, DefaultValuePipe, Get, Headers, Ip, Param, ParseIntPipe, Post, Query } from '@nestjs/common';
+import { Body, Controller, DefaultValuePipe, Get, Param, ParseIntPipe, Post, Query, ValidationPipe } from '@nestjs/common';
+import { CreateUserDto } from './dtos/create-user.dto';
 
 // 15. Creating Controllers
 // 17. Params, Query and Body
@@ -6,6 +7,7 @@ import { Body, Controller, DefaultValuePipe, Get, Headers, Ip, Param, ParseIntPi
 // 21. Validation and Transformation Needs
 // 22. Validating Params with Built-in Pipes
 // 23. Validating Query Params
+// 26. Connecting DTO to Route Method
 
 @Controller('users')
 export class UsersController {
@@ -21,10 +23,8 @@ export class UsersController {
   }
 
   @Post()
-  public createUsers(@Body() request: any, @Headers() headers: any, @Ip() ip: any) {
-    console.log(request);
-    console.log(headers);
-    console.log(ip);
+  public createUsers(@Body(new ValidationPipe()) createUserDto: CreateUserDto) {
+    console.log(createUserDto);
     return 'You sent a post request to users endpoint';
   }
 }
