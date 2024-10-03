@@ -3,6 +3,8 @@ import { AppModule } from './app.module';
 import { ValidationPipe } from '@nestjs/common';
 
 // 27. Global Pipes and Avoiding Malicious Request
+// 28. Converting to an Instance of DTO
+
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
@@ -10,6 +12,7 @@ async function bootstrap() {
     new ValidationPipe({
       whitelist: true,
       forbidNonWhitelisted: true,
+      transform: true,
     }),
   );
   await app.listen(3000);

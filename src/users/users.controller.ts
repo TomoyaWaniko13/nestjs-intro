@@ -9,6 +9,7 @@ import { CreateUserDto } from './dtos/create-user.dto';
 // 23. Validating Query Params
 // 26. Connecting DTO to Route Method
 // 27. Global Pipes and Avoiding Malicious Request
+// 28. Converting to an Instance of DTO
 
 @Controller('users')
 export class UsersController {
@@ -25,7 +26,7 @@ export class UsersController {
 
   @Post()
   public createUsers(@Body() createUserDto: CreateUserDto) {
-    console.log(createUserDto);
+    console.log(createUserDto instanceof CreateUserDto);
     return 'You sent a post request to users endpoint';
   }
 }
