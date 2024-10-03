@@ -1,2 +1,3 @@
 # 16. Working With Routing Decorators
-GET http://localhost:3000/users
+# 17. Params, Query and Body
+GET http://localhost:3000/users/13451?limit=10&offset=20
