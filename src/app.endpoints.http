@@ -1,0 +1,3 @@
+# 14. Setting Up Postman and httpYac
+# Get Request For App Controller
+GET http://localhost:3000/
