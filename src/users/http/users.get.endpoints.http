@@ -3,4 +3,4 @@
 # 22. Validating Params with Built-in Pipes
 # 23. Validating Query Params
 
-GET http://localhost:3000/users/13451?limit=abc&page=20
+GET http://localhost:3000/users/?limit=abc&page=20
