@@ -3,13 +3,14 @@ import { Body, Controller, Get, Headers, Ip, Param, Post, Query } from '@nestjs/
 // 15. Creating Controllers
 // 17. Params, Query and Body
 // 18. Additional Request Components
+// 21. Validation and Transformation Needs
 
 @Controller('users')
 export class UsersController {
   @Get('/:id/:optional?')
   public getUsers(@Param('id') id: any, @Query('limit') limit: any) {
-    console.log(id);
-    console.log(limit);
+    console.log(typeof id);
+    console.log(typeof limit);
     return 'You sent a get request to the users endpoint';
   }
 
