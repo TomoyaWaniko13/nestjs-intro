@@ -1,5 +1,6 @@
 # 16. Working With Routing Decorators
 # 17. Params, Query and Body
 # 22. Validating Params with Built-in Pipes
+# 23. Validating Query Params
 
-GET http://localhost:3000/users/13451?limit=10&offset=20
+GET http://localhost:3000/users/13451?limit=abc&page=20
