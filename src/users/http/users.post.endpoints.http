@@ -1,5 +1,6 @@
 # 16. Working With Routing Decorators
 # 17. Params, Query and Body
+# 27. Global Pipes and Avoiding Malicious Request
 
 POST http://localhost:3000/users
 Content-Type: application/json
@@ -8,5 +9,6 @@ Content-Type: application/json
   "firstName": "John",
   "lastName": "Doe",
   "email": "john@doe.com",
-  "password": "password123"
+  "password": "password123#",
+  "isAuth": true
 }
