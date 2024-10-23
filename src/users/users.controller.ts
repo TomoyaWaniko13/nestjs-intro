@@ -15,6 +15,7 @@ import { UsersService } from './providers/users.service';
 // 28. Converting to an Instance of DTO
 // 29. Using DTOs with Params
 // 33. Create a users Service
+// 34. findAll Users Method
 
 @Controller('users')
 export class UsersController {
@@ -30,7 +31,7 @@ export class UsersController {
     console.log(getUserPramDto);
     console.log(`limit: ${limit}`);
     console.log(`page ${page}`);
-    return 'You sent a get request to the users endpoint';
+    return this.usersService.findAll(getUserPramDto, limit, page);
   }
 
   @Post()
