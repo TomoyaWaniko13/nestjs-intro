@@ -6,6 +6,6 @@ import { Type } from 'class-transformer';
 export class GetUsersParamsDto {
   @IsOptional()
   @IsInt()
-  @Type(() => Number)
+  @Type(() => Number) // URL は string なので、Number に変換します。
   id?: number;
 }

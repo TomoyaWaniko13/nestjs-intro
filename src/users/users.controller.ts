@@ -2,6 +2,7 @@ import { Body, Controller, DefaultValuePipe, Get, Param, ParseIntPipe, Patch, Po
 import { CreateUserDto } from './dtos/create-user.dto';
 import { GetUsersParamsDto } from './dtos/get-users-params.dto';
 import { PatchUserDto } from './dtos/patch-user.dto';
+import { UsersService } from './providers/users.service';
 
 // 15. Creating Controllers
 // 17. Params, Query and Body
@@ -13,9 +14,13 @@ import { PatchUserDto } from './dtos/patch-user.dto';
 // 27. Global Pipes and Avoiding Malicious Request
 // 28. Converting to an Instance of DTO
 // 29. Using DTOs with Params
+// 33. Create a users Service
 
 @Controller('users')
 export class UsersController {
+  // Injecting Users Service
+  constructor(private readonly usersService: UsersService) {}
+
   @Get('/:id?')
   public getUsers(
     @Param() getUserPramDto: GetUsersParamsDto,
@@ -23,12 +28,14 @@ export class UsersController {
     @Query('page', new DefaultValuePipe(1), ParseIntPipe) page: number,
   ) {
     console.log(getUserPramDto);
-
+    console.log(`limit: ${limit}`);
+    console.log(`page ${page}`);
     return 'You sent a get request to the users endpoint';
   }
 
   @Post()
   public createUsers(@Body() createUserDto: CreateUserDto) {
+    console.log(createUserDto);
     console.log(createUserDto instanceof CreateUserDto);
     return 'You sent a post request to users endpoint';
   }
