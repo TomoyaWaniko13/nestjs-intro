@@ -1,0 +1,2 @@
+# 39. Create a GET Posts Route With DTO39. Create a GET Posts Route With DTO
+GET http://localhost:3000/posts/1234
