@@ -3,6 +3,8 @@ import { GetUsersParamsDto } from '../dtos/get-users-params.dto';
 
 // 33. Create a users Service
 // 34. findAll Users Method
+// 41. Use Users Service Inside Posts Service
+
 @Injectable()
 export class UsersService {
   public findAll(getUserParamDto: GetUsersParamsDto, limit: number, page: number) {
@@ -12,7 +14,7 @@ export class UsersService {
     ];
   }
 
-  public findOneById(id: number) {
+  public findOneById(id: string) {
     return { id: 1234, firstName: 'Alice', email: 'alice@doe.com' };
   }
 }
