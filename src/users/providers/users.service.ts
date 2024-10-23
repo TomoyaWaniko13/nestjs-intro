@@ -7,14 +7,12 @@ import { GetUsersParamsDto } from '../dtos/get-users-params.dto';
 export class UsersService {
   public findAll(getUserParamDto: GetUsersParamsDto, limit: number, page: number) {
     return [
-      {
-        firstName: 'John',
-        email: 'john@doe.com',
-      },
-      {
-        firstName: 'Alice',
-        email: 'alice@doe.com',
-      },
+      { firstName: 'John', email: 'john@doe.com' },
+      { firstName: 'Alice', email: 'alice@doe.com' },
     ];
+  }
+
+  public findOneById(id: number) {
+    return { id: 1234, firstName: 'Alice', email: 'alice@doe.com' };
   }
 }
