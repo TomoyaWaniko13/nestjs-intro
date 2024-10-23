@@ -5,8 +5,10 @@ import { PostsService } from './providers/posts.service';
 // 39. Create a GET Posts Route With DTO
 @Controller('posts')
 export class PostsController {
-  // Injecting Posts Service
-  constructor(private readonly postsService: PostsService) {}
+  constructor(
+    // Injecting Posts Service
+    private readonly postsService: PostsService,
+  ) {}
 
   @Get('/:userId?')
   public getPosts(@Param('userId') userId: string) {

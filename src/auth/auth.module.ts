@@ -9,7 +9,7 @@ import { UsersModule } from '../users/users.module';
 @Module({
   controllers: [AuthController],
   providers: [AuthService],
-  imports: [forwardRef(() => UsersModule)],
   exports: [AuthService],
+  imports: [forwardRef(() => UsersModule)],
 })
 export class AuthModule {}
