@@ -1,6 +1,8 @@
 import { postType } from '../enum/postType.enum';
 import { postStatus } from '../enum/postStatus.enum';
-import { IsArray, IsEnum, IsISO8601, IsJSON, IsNotEmpty, IsOptional, IsString, IsUrl, Matches, MinLength } from 'class-validator';
+import { IsArray, IsEnum, IsISO8601, IsJSON, IsNotEmpty, IsOptional, IsString, IsUrl, Matches, MinLength, ValidateNested } from 'class-validator';
+import { CreatePostMetaOptionsDto } from './create-post-meta-options.dto';
+import { Type } from 'class-transformer';
 
 // 51. Solution: POST Endpoint and DTO For Posts Controller
 // 52. Adding Validations To CreatePostDto
@@ -48,6 +50,9 @@ export class CreatePostDto {
   @MinLength(3, { each: true })
   tags?: string[];
 
-  // https://basarat.gitbook.io/typescript/type-system/index-signatures
-  metaOptions: [{ key: 'sidebarEnabled'; value: true }];
+  @IsOptional()
+  @IsArray()
+  @ValidateNested({ each: true }) // 配列内の各オブジェクトに対してネストされたバリデーションを実行
+  @Type(() => CreatePostMetaOptionsDto) // JSONオブジェクトを指定されたクラスのインスタンスに変換
+  metaOptions: CreatePostMetaOptionsDto[];
 }
