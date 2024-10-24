@@ -3,6 +3,7 @@ import { CreateUserDto } from './dtos/create-user.dto';
 import { GetUsersParamsDto } from './dtos/get-users-params.dto';
 import { PatchUserDto } from './dtos/patch-user.dto';
 import { UsersService } from './providers/users.service';
+import { ApiTags } from '@nestjs/swagger';
 
 // 15. Creating Controllers
 // 17. Params, Query and Body
@@ -16,8 +17,10 @@ import { UsersService } from './providers/users.service';
 // 29. Using DTOs with Params
 // 33. Create a users Service
 // 34. findAll Users Method
+// 47. Enabling Swagger in NestJS
 
 @Controller('users')
+@ApiTags('Users')
 export class UsersController {
   // Injecting Users Service
   constructor(private readonly usersService: UsersService) {}
